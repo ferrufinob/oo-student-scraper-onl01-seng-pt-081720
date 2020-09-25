@@ -8,8 +8,10 @@ class Student
     # self.send("name=", student_hash[:name])
     # self.send("location=", student_hash[:location])
     # self.send("profile_url=", student_hash[:profile_url])
+    student_hash.each do |attribute, value|
+      self.send("#{attribute}=", value)
+    end
     @@all << self
-    
   end
 
   def self.create_from_collection(students_array)
